@@ -1,12 +1,19 @@
+var crypto = require('crypto');
+var randomString = require('random-string');
 var jwt = require('jsonwebtoken');
 
 module.exports = function () {
 	var seneca = this;
 	var plugin = 'jwt';
 
+	seneca.add({role: plugin, cmd: 'generateKey'}, generateKey);
 	seneca.add({role: plugin, cmd: 'sign'}, sign);
 	seneca.add({role: plugin, cmd: 'verify'}, verify);
 	seneca.add({role: plugin, cmd: 'decode'}, decode);
+
+	function generateKey(msg, done) {
+		done(null, {key: crypto.createHash('sha512').update(randomString()).digest('base64')});
+	}
 
 	function sign(msg, done) {
 		var token;
