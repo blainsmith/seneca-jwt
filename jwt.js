@@ -18,10 +18,10 @@ module.exports = function () {
 	function sign(msg, done) {
 		var token;
 
-		if (Buffer.isBuffer(msg.secret)) {
-			token = jwt.sign(msg.payload, msg.secret, {noTimestamp: true, algorithm: msg.algorithm});
+		if (Buffer.isBuffer(msg.key)) {
+			token = jwt.sign(msg.payload, msg.key, {noTimestamp: true, algorithm: msg.algorithm});
 		} else {
-			token = jwt.sign(msg.payload, msg.secret, {noTimestamp: true});
+			token = jwt.sign(msg.payload, msg.key, {noTimestamp: true});
 		}
 
 		done(null, {token: token});
@@ -30,10 +30,10 @@ module.exports = function () {
 	function verify(msg, done) {
 		var decoded;
 
-		if (Buffer.isBuffer(msg.secret)) {
-			decoded = jwt.verify(msg.token, msg.secret, {noTimestamp: true});
+		if (Buffer.isBuffer(msg.key)) {
+			decoded = jwt.verify(msg.token, msg.key, {noTimestamp: true});
 		} else {
-			decoded = jwt.verify(msg.token, msg.secret, {noTimestamp: true});
+			decoded = jwt.verify(msg.token, msg.key, {noTimestamp: true});
 		}
 
 		done(null, decoded);
