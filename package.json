@@ -1,0 +1,35 @@
+{
+  "name": "seneca-jwt",
+  "version": "1.0.0",
+  "description": "Seneca plugin to work with JSON Web Tokens.",
+  "main": "jwt.js",
+  "scripts": {
+    "test": "npm run lint && npm run tape",
+    "lint": "xo",
+    "tape": "tape 'test/**/*_test.js' | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blainsmith/seneca-jwt.git"
+  },
+  "keywords": [
+    "jwt",
+    "seneca",
+    "microservices"
+  ],
+  "author": "Blain Smith <rebelgeek@blainsmith.com> (http://blainsmith.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blainsmith/seneca-jwt/issues"
+  },
+  "homepage": "https://github.com/blainsmith/seneca-jwt#readme",
+  "devDependencies": {
+    "seneca": "^0.9.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.2.2",
+    "xo": "^0.11.2"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^5.4.1"
+  }
+}
