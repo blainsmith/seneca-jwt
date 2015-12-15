@@ -1,10 +1,18 @@
 language: node_js
 sudo: false
 node_js:
-  - 4
-  - 5
+- 4
+- 5
 cache:
   directories:
-      - node_modules
+  - node_modules
 after_script:
-  - npm run coveralls
+- npm run coveralls
+deploy:
+  provider: npm
+  email: rebelgeek@blainsmith.com
+  api_key:
+    secure: DbXiIsQve++3BnhldgR/frLSRbqgYBWhGbVuXMCumjpE2FmDEK4n0VXoKEFTIS+gMiJesCeViS625p75/Wnc8qKxyBRVJWtbnpVk3yNCdtSYIqEULOSARlGlSZSqXDzH7FXn3cZDRVOu2Gat7boDmcrCOVut0vGkgigbtqGaFMjiHr7znGNFNiH8xY1E6eRDwjSxN3jG/yBIqy6ntVh2KTrE4Eofuv3bTJL+kG22MooDA9B0vqe58vAgtU5kdlDgFg0U/vRo095/X9Tt3ojYaES8Gh4dXpOl1hmWqo+g0/2ECjZ275MY7asN2zpBhkLnt859cfdo/95fhvzHf9FBuT/d/zxWaFrahL3XRAlRXdsurXkqdMtXdcwhzSZ7iSS8V+ITDnG5zE7qXB2Bocu0qygPqJC1rF/0ZntfnNtDLnbA/tiwvdyYr7kL8ZeHBFC/bRIFIJ1TgBGKR/H78R91CMPfBCxWTGR8bVVgS3MwliZaH/vr9ypq6j2T0XGfCpz5FLjnlSrTx46sEPfbuTtqzFiMrsSHDUr0z90Xb7cPkk7hi0LS9T9tpjBOn2mIoB3PBNDK+J9r10P0tdF+1Ri/QD1y9hdJV/j3JKD2AGMh/+Paod4uflT7IEO6Tg3Msfqz6VYVmiiRW9+bFTg6lmh4Rhh8u+JrpKn4+JXqhEVFN2c=
+  on:
+    tags: true
+    repo: blainsmith/seneca-jwt
