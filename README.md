@@ -14,6 +14,35 @@ Install via npm. You will need install Seneca.js also.
 npm install seneca-jwt
 ```
 
+## Setup
+
+```js
+var seneca = require('seneca')();
+seneca.use('jwt');
+```
+
+### options
+
+- **key**: (string) a shared key for signing and verifying ***(required if publicKey and privateKey not provided)***
+- **privateKey**: (buffer) a key file ***(required if key not provided)***
+- **publicKey**: (buffer) a key file ***(required if key not provided)***
+- **algorithm**: (string, default 'RS256') the algorithm used with privateKey and publicKey
+
+```js
+var seneca = require('seneca')();
+
+// Use a shared key string
+seneca.use('jwt', {
+	key: 'superPassword'
+});
+
+// Use public and private keys
+seneca.use('jwt', {
+	privateKey: fs.readFileSync(path.join(__dirname, '/keys/jwt')),
+	publicKey: fs.readFileSync(path.join(__dirname, '/keys/jwt.pub'))
+});
+```
+
 ## Test
 
 ```
