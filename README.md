@@ -43,6 +43,26 @@ seneca.use('jwt', {
 });
 ```
 
+### Provided actions
+`seneca-jwt` provide the following actions. (all including the `{role: "jwt"}`)
+
+#### generateKey - generate a new key
+- arguments : *none*
+- result: `{key: "<generated-key>"}`
+
+#### sign - create a token with given `payload`
+- arguments: `payload`, `key`, `algorithm`
+  `key` and `algorithm` can be provided in the seneca message, otherwise they are inferred from options.
+- result: `{token: "<generated-token>"}`
+
+#### verify - Check token validity
+- arguments: `token`
+- result: callback called with an error if not valid
+
+#### decode - Extract content of content
+- arguments: `token`
+- result: *content of token*
+
 ## Test
 
 ```
