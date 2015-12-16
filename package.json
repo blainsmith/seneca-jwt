@@ -25,6 +25,9 @@
     "url": "https://github.com/blainsmith/seneca-jwt/issues"
   },
   "homepage": "https://github.com/blainsmith/seneca-jwt#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "devDependencies": {
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.1",
