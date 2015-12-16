@@ -1,6 +1,6 @@
 {
   "name": "seneca-jwt",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Seneca plugin to work with JSON Web Tokens.",
   "main": "jwt.js",
   "scripts": {
@@ -25,6 +25,9 @@
     "url": "https://github.com/blainsmith/seneca-jwt/issues"
   },
   "homepage": "https://github.com/blainsmith/seneca-jwt#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "devDependencies": {
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.1",
