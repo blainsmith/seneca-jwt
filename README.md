@@ -33,13 +33,13 @@ var seneca = require('seneca')();
 
 // Use a shared key string
 seneca.use('jwt', {
-	key: 'superPassword'
+  key: 'superPassword'
 });
 
 // Use public and private keys
 seneca.use('jwt', {
-	privateKey: fs.readFileSync(path.join(__dirname, '/keys/jwt')),
-	publicKey: fs.readFileSync(path.join(__dirname, '/keys/jwt.pub'))
+  privateKey: fs.readFileSync(path.join(__dirname, '/keys/jwt')),
+  publicKey: fs.readFileSync(path.join(__dirname, '/keys/jwt.pub'))
 });
 ```
 
@@ -51,15 +51,16 @@ seneca.use('jwt', {
 - result: `{key: "<generated-key>"}`
 
 #### sign - create a token with given `payload`
-- arguments: `payload`, `key`, `algorithm`
-  `key` and `algorithm` can be provided in the seneca message, otherwise they are inferred from options.
+- arguments: `payload`, `key`, `algorithm`  
+`key` and `algorithm` can be provided in the seneca message, otherwise they are inferred from options.
 - result: `{token: "<generated-token>"}`
 
 #### verify - Check token validity
-- arguments: `token`
+- arguments: `token`, `key`, `algorithm`  
+`key` and `algorithm` can be provided in the seneca message, otherwise they are inferred from options.
 - result: callback called with an error if not valid
 
-#### decode - Extract content of content
+#### decode - Extract content of token without verifying
 - arguments: `token`
 - result: *content of token*
 

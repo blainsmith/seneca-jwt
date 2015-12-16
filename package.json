@@ -1,6 +1,6 @@
 {
   "name": "seneca-jwt",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Seneca plugin to work with JSON Web Tokens.",
   "main": "jwt.js",
   "scripts": {
