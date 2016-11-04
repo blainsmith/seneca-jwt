@@ -2,6 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var test = require('tape');
 var seneca = require('seneca')(require('./config'));
+
 seneca.use('..');
 
 var payload = {
