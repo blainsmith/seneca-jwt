@@ -10,7 +10,9 @@ var payload = {
 	email: 'rebelgeek@blainsmith.com',
 	github: 'blainsmith'
 };
-var hs256token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmxhaW4gU21pdGgiLCJlbWFpbCI6InJlYmVsZ2Vla0BibGFpbnNtaXRoLmNvbSIsImdpdGh1YiI6ImJsYWluc21pdGgifQ.q44ynm7JKK7Ydprn4kei7lBY0J5V-aMO5ioZM6hxb1Q'
+
+var hs256token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmxhaW4gU21pdGgiLCJlbWFpbCI6InJlYmVsZ2Vla0BibGFpbnNtaXRoLmNvbSIsImdpdGh1YiI6ImJsYWluc21pdGgifQ.q44ynm7JKK7Ydprn4kei7lBY0J5V-aMO5ioZM6hxb1Q';
+
 test('Generate a String Key', function (t) {
 	t.plan(1);
 
@@ -43,7 +45,7 @@ test('Public/Private Keys', function (t) {
 
 	var privateKey = fs.readFileSync(path.join(__dirname, '/keys/jwt'));
 	var publicKey = fs.readFileSync(path.join(__dirname, '/keys/jwt.pub'));
-	var rs256token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmxhaW4gU21pdGgiLCJlbWFpbCI6InJlYmVsZ2Vla0BibGFpbnNtaXRoLmNvbSIsImdpdGh1YiI6ImJsYWluc21pdGgifQ.bpaToQSWZLY5qsPsTG0tOREQO957wi_UaP8rrrhgQPh8yBV9uUYjoX4ciKNlwX3E3j8nfZ9jjiq8XVK6DWUl1vGlKFNFgAIuy5aVgC02jpvXHXA0g_Ygh2dCm5CL-GyK7zF5SoPXzQxEXAxO36ZPqPKZmlMYLahSzhR9Lik1ZAwTveARNNjKsYmGPAH7zQ-s55DeE19_om2acmki4RhVQpcdiXiiUsVz5dTgOIFYVQ0TEEz-49nSg4hdgmweoRbaqwoK3mdDbbw0uqDDBRLwrXRlvpC6SIKRSZhlhMf-va6zFUkttOB3IzmUjjYKv6gwZs-y5xmIUANEGgfF8Zzzcg'
+	var rs256token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmxhaW4gU21pdGgiLCJlbWFpbCI6InJlYmVsZ2Vla0BibGFpbnNtaXRoLmNvbSIsImdpdGh1YiI6ImJsYWluc21pdGgifQ.bpaToQSWZLY5qsPsTG0tOREQO957wi_UaP8rrrhgQPh8yBV9uUYjoX4ciKNlwX3E3j8nfZ9jjiq8XVK6DWUl1vGlKFNFgAIuy5aVgC02jpvXHXA0g_Ygh2dCm5CL-GyK7zF5SoPXzQxEXAxO36ZPqPKZmlMYLahSzhR9Lik1ZAwTveARNNjKsYmGPAH7zQ-s55DeE19_om2acmki4RhVQpcdiXiiUsVz5dTgOIFYVQ0TEEz-49nSg4hdgmweoRbaqwoK3mdDbbw0uqDDBRLwrXRlvpC6SIKRSZhlhMf-va6zFUkttOB3IzmUjjYKv6gwZs-y5xmIUANEGgfF8Zzzcg';
 
 	seneca.act({role: 'jwt', cmd: 'sign', payload: payload, key: privateKey, algorithm: 'RS256'}, function (errSign, resultSign) {
 		t.equal(resultSign.token, rs256token, 'signing yields correct token');
