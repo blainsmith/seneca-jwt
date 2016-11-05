@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run tape",
     "lint": "xo",
-    "tape": "tape 'test/**/*_test.js' | tap-spec",
+    "tape": "tape 'test/**/*-test.js' | tap-spec",
     "coverage": "istanbul cover tape test/**/*.js | tap-spec",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
